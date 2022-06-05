@@ -1,0 +1,43 @@
+.wrapper {
+   /* height: 100vh; */
+    /*This part is important for centering*/
+    display: grid;
+    place-items: center;
+  }
+  .login_user .login_password .login_button .login_cancel {
+    height: 100vh;
+    /*This part is important for centering*/
+    display: grid;
+    place-items: center;
+  }
+  body {
+    background-color: lightblue;
+    font-family: Calibri, Helvetica, sans-serif;
+  }
+  
+  h1 {
+    color: navy;
+    margin-left: 20px;
+  }
+
+  input[type=text], input[type=password] {   
+    width: 100%;   
+    margin: 8px 0;  
+    padding: 12px 20px;   
+    display: inline-block;   
+    border: 2px solid rgb(9, 3, 81);   
+    box-sizing: border-box;   
+}  
+button:hover {   
+    opacity: 0.7;   
+}
+button {   
+    background-color: #2c057b;   
+    width: 100%;  
+     color: rgb(232, 231, 240);   
+     padding: 15px;   
+     margin: 4px 2px;   
+     border: none;   
+     cursor: pointer; 
+     border-radius: 12px;  
+      }   
