@@ -6,8 +6,8 @@
     /*==================================================================
     [ Validate ]*/
     var input = $('.validate-input .input100');
-    var data_login = { City: 'Moscow', Age: 25 };
-    var valid_bool = false;
+    
+    
 
     $('.validate-form').on('submit', function () {
         var check = true;
@@ -21,7 +21,7 @@
 
 
         return check;
-        valid_bool = true;
+
     });
 
     $("#ok").click(function (e) {
@@ -42,7 +42,16 @@
             data: JSON.stringify(data),
             dataType: "json",
             success: function (data) {
-                console.log('form submitted.' + JSON.stringify(data));
+               // var json = JSON.stringify(data);
+                /*Cookies.set('token', res.token);*/
+
+                 $.each(data, function(index, element) {
+                     if (index == "token") {
+                         document.cookie = "token = "+element;
+                             console.log("element = " + element);
+                     }
+                    });
+               //console.log('form submitted.' + json[6].name);
             }
         });
 

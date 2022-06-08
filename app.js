@@ -9,10 +9,12 @@ const auth = require("./middleware/auth");
 
 
 const { json } = require("express/lib/response");
+const {signedCookie} = require("cookie-parser");
 
 const app = express();
 
 app.use(require('./middleware/midd.js'));
+
 
 app.post("/register", async (req, res) => {
   try {
@@ -58,13 +60,19 @@ app.post("/register", async (req, res) => {
     );
     // save user token
     user.token = token;
-
-    // return new user
     res.status(201).json(user);
+
+
+
   } catch (err) {
     console.log(err);
   }
 });
+
+/*app.get('/setcookie', (req, res) =>{
+  res.cookie('testCookie', 'magic content');
+  res.send("set the cookie");
+})*/
 
 app.post("/login", async (req, res) => {
   try {
@@ -104,7 +112,8 @@ app.post("/login", async (req, res) => {
 });
 
 app.get("/welcome", auth, (req, res) => {
-  res.status(200).send("Welcome 🙌 ");
+  console.log(`Cookie: ${req.cookies["token"]}`);
+  res.status(200).send("Welcome XXX");
 });
 
 // This should be the last route else any after it won't work
