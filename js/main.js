@@ -29,8 +29,8 @@
 
         data.email = $("input[name=email]").val();
         data.password = $("input[name=pass]").val();
-        data.first_name = "test7";
-        data.last_name = "lasttest";
+        data.first_name = $("input[name=fname]").val();
+        data.last_name = $("input[name=lname]").val();
         
         
 

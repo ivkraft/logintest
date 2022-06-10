@@ -188,7 +188,7 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 177px 130px 33px 95px;
+  padding: 60px 130px 33px 95px;
 }
 
 /*------------------------------------------------------------------
@@ -361,7 +361,7 @@ iframe {
 
 @media (max-width: 992px) {
   .wrap-login100 {
-    padding: 177px 90px 33px 85px;
+    padding: 60px 90px 33px 85px;
   }
 
   .login100-pic {
@@ -375,7 +375,7 @@ iframe {
 
 @media (max-width: 768px) {
   .wrap-login100 {
-    padding: 100px 80px 33px 80px;
+    padding: 60px 80px 33px 80px;
   }
 
   .login100-pic {
@@ -389,7 +389,7 @@ iframe {
 
 @media (max-width: 576px) {
   .wrap-login100 {
-    padding: 100px 15px 33px 15px;
+    padding: 60px 15px 33px 15px;
   }
 }
 
