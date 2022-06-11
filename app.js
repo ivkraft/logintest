@@ -7,24 +7,19 @@ const jwt = require("jsonwebtoken");
 const User = require("./model/user");
 const auth = require("./middleware/auth");
 
-
 const { json } = require("express/lib/response");
-const {signedCookie} = require("cookie-parser");
+const { signedCookie } = require("cookie-parser");
 
 const app = express();
 
-app.use(require('./middleware/midd.js'));
-
+app.use(require("./middleware/midd.js"));
 
 app.post("/register", async (req, res) => {
   try {
     // Get user input
-    
+
     console.log(req.body);
     const { first_name, last_name, email, password } = req.body;
-    
-    
-    
 
     // Validate user input
     if (!(email && password && first_name && last_name)) {
@@ -61,18 +56,10 @@ app.post("/register", async (req, res) => {
     // save user token
     user.token = token;
     res.status(201).json(user);
-
-
-
   } catch (err) {
     console.log(err);
   }
 });
-
-/*app.get('/setcookie', (req, res) =>{
-  res.cookie('testCookie', 'magic content');
-  res.send("set the cookie");
-})*/
 
 app.post("/login", async (req, res) => {
   try {
@@ -101,10 +88,8 @@ app.post("/login", async (req, res) => {
 
       // user
       res.status(200).json(user.token);
-    }
-    else
-    {
-    res.status(400).send("Invalid Credentials");
+    } else {
+      res.status(400).send("Invalid Credentials");
     }
   } catch (err) {
     console.log(err);
@@ -126,7 +111,7 @@ app.use("*", (req, res) => {
       message: "You reached a route that is not defined on this server",
     },
   });
-  console.log("Error "+req.body);
+  console.log("Error " + req.body);
 });
 
 module.exports = app;
