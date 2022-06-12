@@ -20,7 +20,7 @@ app.post("/register", async (req, res) => {
   try {
     // Get user input
     
-    console.log(req.body);
+    
     const { first_name, last_name, email, password } = req.body;
     
     
@@ -49,6 +49,7 @@ app.post("/register", async (req, res) => {
       email: email.toLowerCase(), // sanitize: convert email to lowercase
       password: encryptedPassword,
     });
+    console.log(user._id);
 
     // Create token
     const token = jwt.sign(
@@ -60,6 +61,7 @@ app.post("/register", async (req, res) => {
     );
     // save user token
     user.token = token;
+    console.log(user);
     res.status(201).json(user);
 
 
@@ -69,10 +71,7 @@ app.post("/register", async (req, res) => {
   }
 });
 
-/*app.get('/setcookie', (req, res) =>{
-  res.cookie('testCookie', 'magic content');
-  res.send("set the cookie");
-})*/
+
 
 app.post("/login", async (req, res) => {
   try {
@@ -100,7 +99,7 @@ app.post("/login", async (req, res) => {
       user.token = token;
 
       // user
-      res.status(200).json(user.token);
+      res.status(200).json(user.token,user._id);
     }
     else
     {
@@ -111,9 +110,19 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.get("/welcome", auth, (req, res) => {
-  console.log(`Cookie: ${req.cookies["token"]}`);
-  res.status(200).send("Welcome XXX");
+app.get("/welcome", auth, async (req, res) => {
+
+   
+  const _id = req.cookies["_id"];
+    
+  const user = await User.findOne({ _id});
+  if (user) {
+    res.status(200).send("Welcome: " + user.first_name + " " + user.last_name);
+   }
+  else
+   {
+    res.status(400).send("Invalid Credentials");
+   }
 });
 
 // This should be the last route else any after it won't work

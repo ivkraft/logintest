@@ -6,33 +6,28 @@
     /*==================================================================
     [ Validate ]*/
     var input = $('.validate-input .input100');
-    
-    
 
-    $('.validate-form').on('submit', function () {
-        var check = true;
+
+
+    $("#ok").on("click",function () {
+       /* var check = true;
 
         for (var i = 0; i < input.length; i++) {
             if (validate(input[i]) == false) {
                 showValidate(input[i]);
                 check = false;
             }
-        }
+        }*/
 
 
-        return check;
-
-    });
-
-    $("#ok").click(function (e) {
         var data = {};
 
         data.email = $("input[name=email]").val();
         data.password = $("input[name=pass]").val();
         data.first_name = $("input[name=fname]").val();
         data.last_name = $("input[name=lname]").val();
-        
-        
+
+
 
         $.ajax({
 
@@ -42,22 +37,27 @@
             data: JSON.stringify(data),
             dataType: "json",
             success: function (data) {
-               // var json = JSON.stringify(data);
+                // var json = JSON.stringify(data);
                 /*Cookies.set('token', res.token);*/
+                console.log(JSON.stringify(data));
 
-                 $.each(data, function(index, element) {
-                     if (index == "token") {
-                         document.cookie = "token = "+element;
-                             console.log("element = " + element);
-                     }
-                    });
-               //console.log('form submitted.' + json[6].name);
+                $.each(data, function (index, element) {
+                    if (index == "token") {
+                        document.cookie = "token = " + element;
+                    };
+                    if (index == "_id") {
+                        document.cookie = "_id = " + element;
+                        
+                    };
+                });
+               
             }
         });
-
-
+        console.log('form submitted.');
+        
 
     });
+
 
 
     $('.validate-form .input100').each(function () {
