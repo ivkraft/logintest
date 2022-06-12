@@ -110,12 +110,10 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.get("/welcome", auth, async (req, res) => {
+app.get("/welcome", auth,  (req, res) => {
 
    
-  const _id = req.cookies["_id"];
-    
-  const user = await User.findOne({ _id});
+ 
   if (user) {
     res.status(200).send("Welcome: " + user.first_name + " " + user.last_name);
    }
