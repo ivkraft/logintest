@@ -1,11 +1,10 @@
 const jwt = require("jsonwebtoken");
+const User = require("../model/user");
 
 const config = process.env;
 
-const verifyToken = (req, res, next) => {
-  console.log("Cookie: " + req.cookies["token"]);
-  // const token =
-  //    req.body.token || req.query.token || req.headers["x-access-token"];
+const verifyToken = async (req, res, next) => {
+ 
   const token = req.cookies["token"];
 
   if (!token) {
@@ -17,6 +16,9 @@ const verifyToken = (req, res, next) => {
   } catch (err) {
     return res.status(401).send("Invalid Token");
   }
+  const _id = req.cookies["_id"];
+    
+  const user = await User.findOne({ _id});
   
   return next();
 };

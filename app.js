@@ -96,9 +96,17 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.get("/welcome", auth, (req, res) => {
-  console.log(`Cookie: ${req.cookies["token"]}`);
-  res.status(200).send("Welcome XXX");
+app.get("/welcome", auth,  (req, res) => {
+
+   
+ 
+  if (user) {
+    res.status(200).send("Welcome: " + user.first_name + " " + user.last_name);
+   }
+  else
+   {
+    res.status(400).send("Invalid Credentials");
+   }
 });
 
 // This should be the last route else any after it won't work
