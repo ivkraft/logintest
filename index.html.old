@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login TEST</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+
+    <!--==============================================================================================
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+==========================================================================================-->
+
+    <!--===============================================================================================-->
+
+   
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+  </head>
+  <body>
+    
+    <div>
+      <input class="input100" type="text" name="fname" id="fname" placeholder="First Name" />
+    </div>
+    <div>
+      <input class="input100" type="text" name="lname" id="lname" placeholder="Last Name" />
+    </div>
+    <div>
+      <input class="input100" type="text" name="email" id="email" placeholder="E-mail" />
+    </div>
+    <div>
+      <input class="input100" type="text" name="pass" id="pass" placeholder="Password" />
+    </div>
+
+    <button onclick="sendJSON_Register()" class="login100-form-btn" id="ok">Register</button>
+    <button onclick="sendJSON_Login()" class="login100-form-btn" id="login_ok">
+      Login
+    </button>
+    
+
+    <script src="js/main.js"></script>
+
+    <!--===============================================================================================-->
+
+    <!--===============================================================================================-->
+
+    <!--===============================================================================================-->
+
+    <!--===============================================================================================-->
+  </body>
+</html>
