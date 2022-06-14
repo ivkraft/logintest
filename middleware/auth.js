@@ -4,7 +4,6 @@ const User = require("../model/user");
 const config = process.env;
 
 const verifyToken = async (req, res, next) => {
- 
   const token = req.cookies["token"];
 
   if (!token) {
@@ -16,10 +15,7 @@ const verifyToken = async (req, res, next) => {
   } catch (err) {
     return res.status(401).send("Invalid Token");
   }
-  const _id = req.cookies["_id"];
-    
-  const user = await User.findOne({ _id});
-  
+
   return next();
 };
 

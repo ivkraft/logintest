@@ -18,8 +18,8 @@ app.post("/register", async (req, res) => {
   try {
     // Get user input
 
-    console.log(req.body);
     const { first_name, last_name, email, password } = req.body;
+    console.log(req.body);
 
     // Validate user input
     if (!(email && password && first_name && last_name)) {
@@ -87,7 +87,8 @@ app.post("/login", async (req, res) => {
       user.token = token;
 
       // user
-      res.status(200).json(user.token);
+      console.log(JSON.stringify(user));
+      res.status(200).json(user);
     } else {
       res.status(400).send("Invalid Credentials");
     }
@@ -96,17 +97,23 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.get("/welcome", auth,  (req, res) => {
+app.get("/welcome", auth, async (req, res) => {
+  const usercook = await User.findOne({ _id: req.user.user_id });
 
-   
- 
-  if (user) {
-    res.status(200).send("Welcome: " + user.first_name + " " + user.last_name);
-   }
-  else
-   {
+  if (usercook) {
+    res
+      .status(200)
+      .send(
+        "Welcome: FN: " +
+          usercook.first_name +
+          ", LN: " +
+          usercook.last_name +
+          " email: " +
+          req.user.email
+      );
+  } else {
     res.status(400).send("Invalid Credentials");
-   }
+  }
 });
 
 // This should be the last route else any after it won't work
