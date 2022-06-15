@@ -3,11 +3,11 @@ const lname = document.getElementById("lname");
 const email = document.getElementById("email");
 const pass = document.getElementById("pass");
 
-function setCookie(name, value, days) {
+function setCookie(name, value, hours) {
   var expires = "";
-  if (days) {
+  if (hours) {
     var date = new Date();
-    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    date.setTime(date.getTime() + hours * 60 * 60 * 1000);
     expires = "; expires=" + date.toUTCString();
   }
   document.cookie = name + "=" + (value || "") + expires + "; path=/";
@@ -26,7 +26,7 @@ function eraseCookie(name) {
   document.cookie = name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 }
 
-function  sendJSON_Register() {
+function sendJSON_Register() {
   var data = {
     first_name: fname.value,
     last_name: lname.value,
@@ -43,11 +43,11 @@ function  sendJSON_Register() {
     .then((data) => {
       console.log(data.token);
       console.log(data._id);
-      setCookie("token", data.token, 1);
+      setCookie("token", data.token, 2);
       window.location.href = "https://localhost:4001/welcome";
     });
-    
-   
+
+
 }
 
 function sendJSON_Login() {
@@ -63,7 +63,7 @@ function sendJSON_Login() {
   })
     .then((res) => res.json())
     .then((data) => {
-      setCookie("token", data.token, 1);
+      setCookie("token", data.token, 2);
       console.log(data._id);
       window.location.href = "https://localhost:4001/welcome";
     });
