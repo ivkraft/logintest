@@ -34,7 +34,7 @@ function  sendJSON_Register() {
     password: pass.value,
   };
 
-  fetch("http://localhost:4001/register", {
+  fetch("https://localhost:4001/register", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -44,7 +44,7 @@ function  sendJSON_Register() {
       console.log(data.token);
       console.log(data._id);
       setCookie("token", data.token, 1);
-      window.location.href = "http://localhost:4001/welcome";
+      window.location.href = "https://localhost:4001/welcome";
     });
     
    
@@ -56,7 +56,7 @@ function sendJSON_Login() {
     password: pass.value,
   };
 
-  fetch("http://localhost:4001/login", {
+  fetch("https://localhost:4001/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -65,6 +65,6 @@ function sendJSON_Login() {
     .then((data) => {
       setCookie("token", data.token, 1);
       console.log(data._id);
-      window.location.href = "http://localhost:4001/welcome";
+      window.location.href = "https://localhost:4001/welcome";
     });
 }
