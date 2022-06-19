@@ -6,10 +6,12 @@ Format .env
 > 
 >API_PORT=4001
 >
->MONGO_URI="mongodb+srv://<LOGIN>:<PASSWORD>@cluster0.wnctp.mongodb.net/?retryWrites=true&w=majority">
+>MONGO_URI="mongodb+srv://"LOGIN":"PASSWORD"@"cluster".mongodb.net/?retryWrites=true&w=majority">
+>
 >TOKEN_KEY="<KEY>"
 >
 >certificate="localhost.crt"
+>
 >privateKey="localhost.key"
   
 For the sertificate you can use this 
