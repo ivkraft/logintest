@@ -1,8 +1,11 @@
 # logintest
 Testing Login Page
 This is Login Page with Cookies for testing ( my way JMeter )
-You must have .env in the root / 
+
+You must have .env in the ./ 
+
 Format .env
+
 > 
 >API_PORT=4001
 >
