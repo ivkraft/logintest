@@ -8,7 +8,7 @@ Format .env
 >
 >MONGO_URI="mongodb+srv://"LOGIN":"PASSWORD"@"cluster".mongodb.net/?retryWrites=true&w=majority">
 >
->TOKEN_KEY="<KEY>"
+>TOKEN_KEY="'you secret key'"
 >
 >certificate="localhost.crt"
 >
