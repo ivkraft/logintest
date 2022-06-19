@@ -1,6 +1,6 @@
 # logintest
-Testing Login Page as QA
-This is Login Page with Cookies for testing ( my way JMeter)
+Testing Login Page
+This is Login Page with Cookies for testing ( my way JMeter )
 You must have .env in the root / 
 Format .env
 > 
